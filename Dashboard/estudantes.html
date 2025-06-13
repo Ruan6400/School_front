@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Estudantes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="../js/aluno.js"></script>
+  <style>
+    body{
+      position: relative;
+    }
+    #Cadastro_Aluno{
+      position: absolute;
+      top:50%;
+      left:50%;
+      z-index: 10;
+      width: 500px;
+      height: 700px;
+      background-color: azure;
+      transform: translate(-50%,-50%);
+    }
+    #Cadastro_Aluno *{
+      display: block;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <div class="profile">
+      <img src="https://i.pravatar.cc/100" alt="Foto de perfil">
+      <h3>Ruan Santos</h3>
+      <p>Administrador</p>
+    </div>
+    <div class="menu">
+      <a href="/SAITE/Dashboard/dashboard.html"><i class="fa fa-home"></i> Home</a>
+      <a href="#"><i class="fa fa-bookmark"></i> Cursos</a>
+      <a href="/SAITE/Dashboard/estudantes.html" class="active"><i class="fa fa-graduation-cap"></i> Estudantes</a>
+      <a href="#"><i class="fa fa-usd"></i> Pagamentos</a>
+      <a href="#"><i class="fa fa-bar-chart"></i> Relatório</a>
+      <a href="#"><i class="fa fa-cog"></i> Configurações</a>
+    </div>
+    <div class="logout">
+      <a href="/SAITE/Login/login.html"><i class="fa fa-sign-out"></i> Logout</a>
+    </div>
+  </div>
+
+  <div class="topnav">
+    <div class="top-left">
+      <i id="openSidebar" class="fa fa-bars toggle-btn" title="Abrir menu"></i>
+      <div class="top-title">
+        <span class="title-bar"></span>
+        <h1>OWASP TOP 10</h1>
+      </div>
+    </div>
+    <div class="searchbar-wrapper">
+      <input type="text" placeholder="Search...">
+      <i class="fa fa-search"></i>
+    </div>
+    <i class="fa fa-bell-o bell-btn"></i>
+  </div>
+
+  <div class="table-container">
+    <div class="table-header">
+      <h2>Lista de Estudantes</h2>
+      <button class="btn-add">Adicionar Novo Estudante</button>
+    </div>
+
+    <table class="students-table">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Número de Telefone</th>
+          <th>Senha</th>
+          <th>Data da Matrícula</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="https://i.pravatar.cc/100" alt="Estudante"></td>
+          <td>Anderson Silva</td>
+          <td>anderson@gmail.com</td>
+          <td>(13) 91234-1234</td>
+          <td>8fn29%&cbwu4%&'</td>
+          <td>01/05/2025</td>
+          <td class="actions">
+            <i class="fa fa-pencil"></i>
+            <i class="fa fa-trash"></i>
+          </td>
+        </tr>
+        <!-- Adicione mais estudantes aqui -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const openBtn = document.getElementById("openSidebar");
+
+    openBtn.addEventListener("click", () => {
+      sidebar.classList.remove("closed");
+    });
+
+    document.addEventListener("click", function(event) {
+      const isClickInsideSidebar = sidebar.contains(event.target);
+      const isClickOnToggle = openBtn.contains(event.target);
+
+      if (!isClickInsideSidebar && !isClickOnToggle) {
+        sidebar.classList.add("closed");
+      }
+    });
+
+    
+
+  </script>
+</body>
+</html>

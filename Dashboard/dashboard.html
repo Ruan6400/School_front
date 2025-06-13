@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <div class="profile">
+      <img src="https://i.pravatar.cc/100" alt="Foto de perfil">
+      <h3>Ruan Santos</h3>
+      <p>Administrador</p>
+    </div>
+    <div class="menu">
+      <a href="/SAITE/Dashboard/dashboard.html" class="active"><i class="fa fa-home"></i> Home</a>
+      <a href="#"><i class="fa fa-bookmark"></i> Cursos</a>
+      <a href="/SAITE/Dashboard/estudantes.html"><i class="fa fa-graduation-cap"></i> Estudantes</a>
+      <a href="#"><i class="fa fa-usd"></i> Pagamentos</a>
+      <a href="#"><i class="fa fa-bar-chart"></i> Relatório</a>
+      <a href="#"><i class="fa fa-cog"></i> Configurações</a>
+    </div>
+    <div class="logout">
+      <a href="/SAITE/Login/login.html"><i class="fa fa-sign-out"></i> Logout</a>
+    </div>
+  </div>
+
+<div class="topnav">
+  <div class="top-left">
+    <i id="openSidebar" class="fa fa-bars toggle-btn" title="Abrir menu"></i>
+    <div class="top-title">
+      <span class="title-bar"></span>
+      <h1>OWASP TOP 10</h1>
+    </div>
+  </div>
+  <div class="searchbar-wrapper">
+    <input type="text" placeholder="Search...">
+    <i class="fa fa-search"></i>
+  </div>
+  <i class="fa fa-bell-o bell-btn"></i>
+</div>
+
+  <div class="content" id="main-content">
+    <div class="card">
+      <h3><i class="fa fa-graduation-cap"></i> Estudantes</h3>
+      <p><strong>243</strong></p>
+    </div>
+    <div class="card">
+      <h3><i class="fa fa-bookmark"></i> Cursos</h3>
+      <p><strong>13</strong></p>
+    </div>
+    <div class="card">
+      <h3><i class="fa fa-usd"></i> Pagamentos</h3>
+      <p><strong>R$ 56,000</strong></p>
+    </div>
+    <div class="card">
+      <h3><i class="fa fa-user"></i> Professores</h3>
+      <p><strong>10</strong></p>
+    </div>
+  </div>
+
+  <script>
+  const sidebar = document.getElementById("sidebar");
+  const openBtn = document.getElementById("openSidebar");
+
+  // Abrir sidebar ao clicar no ícone
+  openBtn.addEventListener("click", () => {
+    sidebar.classList.remove("closed");
+  });
+
+  // Fechar ao clicar fora da sidebar
+  document.addEventListener("click", function(event) {
+    const isClickInsideSidebar = sidebar.contains(event.target);
+    const isClickOnToggle = openBtn.contains(event.target);
+
+    if (!isClickInsideSidebar && !isClickOnToggle) {
+      sidebar.classList.add("closed");
+    }
+  });
+</script>
+
+</body>
+</html>
