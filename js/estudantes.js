@@ -35,6 +35,15 @@ async function MostrarAlunos(){
                         <i class="fa fa-trash"></i>
                     </td>
                 </tr>`)
+            const lixo  = document.querySelector('tr:last-of-type i.trash')
+            lixo.addEventListener('click',async ()=>{
+                if(confirm("Deseja excluir esse usuário?")){
+                    const deletar = await fetch(url+"/usuarios/"+aluno.email,{
+                        method:'DELETE',
+                        headers:{'Authorization':'Bearer '+token}
+                    }).then(res=>console.log(res.json()))
+                }
+            })
         });
     }
 }
